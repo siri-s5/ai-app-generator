@@ -1,0 +1,100 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(3, 3, 10, 0.85);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: header-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes header-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-logo-wrap {
+  position: relative;
+  animation: logo-spin 12s linear infinite;
+}
+
+@keyframes logo-spin {
+  from { filter: drop-shadow(0 0 6px rgba(123,92,255,0.5)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255,92,248,0.6)); }
+  to { filter: drop-shadow(0 0 6px rgba(123,92,255,0.5)); }
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.header-brand {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.14em;
+  background: linear-gradient(135deg, #a97dff 0%, #ff5cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+}
+
+.header-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--neon);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid rgba(0,245,196,0.2);
+  border-radius: 100px;
+  background: rgba(0,245,196,0.05);
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--neon);
+  box-shadow: 0 0 8px var(--neon);
+  animation: pulse-status 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--neon); }
+  50% { opacity: 0.5; box-shadow: 0 0 3px var(--neon); }
+}
+
+@media (max-width: 600px) {
+  .header { padding: 12px 18px; }
+  .header-tag, .header-divider { display: none; }
+  .header-brand { font-size: 22px; }
+}
