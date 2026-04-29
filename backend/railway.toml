@@ -1,18 +1,9 @@
 [build]
 builder = "NIXPACKS"
 
-[build.nixpacks]
-setupPhase = "npm ci"
-
 [deploy]
-startCommand = "npm start"
+startCommand = "node src/index.js"
 healthcheckPath = "/api/health"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
-
-[environments]
-[environments.production]
-GROK_API_KEY = "${{GROK_API_KEY}}"
-FRONTEND_URL = "${{FRONTEND_URL}}"
-PORT = "8080"
